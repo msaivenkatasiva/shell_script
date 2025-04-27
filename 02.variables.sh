@@ -1,7 +1,10 @@
 #!/bin/bash
 
-echo "baleno: Hi, I'm baleno"
-echo "nexon: Hi, I'm nexon :)"
-echo "baleno: i have the most exiting features, and i'm the most comfortable vehicle"
-echo "nexon: i'm the most safest car"
-echo "baleno left the chat"
+PERSON1=baleno
+PERSON2=nexon
+
+echo "$PERSON1: Hi, I'm $PERSON1"
+echo "$PERSON2: Hi, I'm $PERSON2 :)"
+echo "$PERSON1: i have the most exiting features, and i'm the most comfortable vehicle"
+echo "$PERSON2: i'm the most safest car"
+echo "$PERSON1 left the chat"
