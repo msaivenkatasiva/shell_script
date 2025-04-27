@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "please enter your uname::"
+read -s UNAME
+echo "uname is $UNAME"
+
 DATE=$(date)
 
 PERSON1=$1
