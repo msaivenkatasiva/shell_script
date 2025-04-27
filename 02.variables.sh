@@ -2,8 +2,8 @@
 
 DATE=$(date)
 
-PERSON1=baleno
-PERSON2=nexon
+PERSON1=$1
+PERSON2=$2
 
 echo "the date is: $DATE"
 echo "$PERSON1: Hi, I'm $PERSON1"
