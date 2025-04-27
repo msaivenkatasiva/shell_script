@@ -19,3 +19,13 @@ then
 else
     echo "installing git is sucessfull"
 fi
+
+yum install git -y
+
+if [ $? - ne 0 ]
+then 
+    echo "ERROR:: Installing git is failed"
+    EXIT 1
+else
+    echo "installing git is successfull"
+fi
