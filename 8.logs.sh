@@ -13,7 +13,7 @@ VALIDATE(){
         echo "error::....installing $2 failed"
         exit 1
     else
-        echo "$G $2 success"
+        echo "$G $2 success $G "
     fi
 }
 
@@ -23,7 +23,7 @@ then
     echo "please run the command with root user"
     exit 1
 else    
-    echo "$Y you are root user"
+    echo "$Y you are $y root user"
 fi
 
 yum install git -y &>> $LOGFILE
