@@ -3,7 +3,7 @@
 VALIDATE(){
     if [ $1 - ne 0 ]
     then
-        echo "error in istalling $2"
+        echo "error::.... $2 failed"
         exit 1
     else    
         echo "installing $2 is sucess"
@@ -20,6 +20,6 @@ else
     echo "you are root user"
 fi
 
-yum install nginix -y
+yum install mysql -y
 
-VALIDATE $? "echo installing nginix is"
+VALIDATE $? "installing nginix"
