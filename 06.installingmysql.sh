@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ID=$(id)
-
 if [ $ID -ne 0 ]
 then
     echo "please run the command with root user"
