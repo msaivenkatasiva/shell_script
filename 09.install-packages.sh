@@ -36,4 +36,5 @@ do
         VALIDATE $? "installation od $package"
     else
         echo -e "$package is alread installed....$Y skipping $N "
+    fi
 done
