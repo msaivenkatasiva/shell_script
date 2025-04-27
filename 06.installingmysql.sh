@@ -7,7 +7,7 @@ then
     echo "please run the command with root user"
     EXIT 1
 else
-    echo "you are youser"
+    echo "you are rootuser"
 fi
 
 yum install mysql -y
@@ -17,7 +17,7 @@ then
     echo "error:: installing my sql failed"
     EXIT 1
 else
-    echo "installing git is sucessfull"
+    echo "installing msql is sucessfull"
 fi
 
 yum install git -y
