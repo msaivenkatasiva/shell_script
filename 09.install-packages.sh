@@ -33,7 +33,7 @@ do
     if [ $? -ne 0 ]
     then
         yum install $package &>> $LOGFILE
-        VALIDATE $? "installation od $package"
+        VALIDATE $? "installation of $package"
     else
         echo -e "$package is alread installed....$Y skipping $N "
     fi
