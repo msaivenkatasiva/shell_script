@@ -32,7 +32,7 @@ do
     yum list installed $package &>> $LOGFILE
     if [ $? -ne 0 ]
     then
-        yum install $package &>> $LOGFILE
+        yum install $package -y &>> $LOGFILE
         VALIDATE $? "installation of $package"
     else
         echo -e "$package is alread installed....$Y skipping $N "
