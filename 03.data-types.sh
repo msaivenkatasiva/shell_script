@@ -9,6 +9,6 @@ NUMBER1=$1
 NUMBER2=$2
 DATE=$(date)
 
-echo "the sum executed at $G $DATE $N"
+echo -e "the sum executed at $G $DATE $N"
 SUM=$(($NUMBER1+$NUMBER2))
-echo "total amount is $R $SUM $N"  
+echo -e "total amount is $R $SUM $N"  
