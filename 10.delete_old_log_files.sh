@@ -14,7 +14,7 @@ then
     echo -e "$R error:: SOURCE DIRECTORY doesn't exist $N"
 fi
 
-while IFS=read -r line
+while IFS= read -r line
 do
     echo "deleting files: $line"
     rm -rf
