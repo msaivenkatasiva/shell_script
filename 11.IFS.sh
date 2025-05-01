@@ -14,7 +14,7 @@ else
     echo -e "$G found $FILE $N"
 fi
 
-while IFS = ":" read -r username password user_id group_id
+while IFS= ":" read -r username password user_id group_id
 do 
     echo "username: $username"
     echo "password: $password"
