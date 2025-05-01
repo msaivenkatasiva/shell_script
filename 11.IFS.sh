@@ -7,11 +7,11 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [ ! $FILE ]
+if [ !-f $FILE ]
 then
     echo -e "$R ERROR:: file $FILE not exist $N"
 else
-    echo -e "$G found $FILE $G"
+    echo -e "$G found $FILE $N"
 fi
 
 while IFS = ":" read -r username password user_id group_id
