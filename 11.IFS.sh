@@ -20,5 +20,5 @@ do
     echo "password: $password"
     echo "user_id: $user_id"
     echo "group_id: $group_id"
-done <<< $FILE
+done < $FILE
 
