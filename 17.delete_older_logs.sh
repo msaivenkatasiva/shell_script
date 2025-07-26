@@ -18,6 +18,6 @@ FILES=$(find $SOURCE_FILE -name "*.log" -mtime +14)
 
 while read -r line
 do
-    echo -e "$R deleting file:$N $line"
+    echo -e "$R deleted file:$N $line"
     rm -rf $line
 done <<< $FILES
