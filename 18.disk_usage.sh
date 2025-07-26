@@ -1,15 +1,15 @@
 #!/bin/bash
 
-DISK_USAGE=$( df -hT | grep xfs )
+DISK_USAGE=$(df -hT | grep xfs)
 DISK_THRESHOLD=6
 
 
 while IFS= read -r line
 do
-    USAGE=$( echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1 )
-    FOLDER=$( echo $line | df -hT | grep xfs | awk -F " " '{prinf NF}')
+    USAGE=$(echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1)
+    FOLDER=$(echo $line | awk -F " " '{prinf NF}')
     if [ $USAGE -ge $DISK_THRESHOLD ]
     then
         echo "$FOLDER is more than $DISK_THRESHOLD, current usage is $USAGE"
     fi
-done <<< $USAGE
+done <<< $DISK_USAGE
