@@ -14,7 +14,7 @@ else
     echo -e "$R your source file: $SOURCE_FILE doesn't exists $N"
 fi
 
-$FILES=$(find $SOURCE_FILE -name "*.log" -mtime +14)
+FILES=$(find $SOURCE_FILE -name "*.log" -mtime +14)
 
 while read -r line
 do
