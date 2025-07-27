@@ -39,7 +39,7 @@ VALIDATE $? "enabling mysqld"
 systemctl start mysqld
 VALIDATE $? "starting mysqld"
 
-mysql -h db.daws78s.online -uroot -p${mysql_root_password} -e 'show databases;'
+mysql -h db.devopswithmsvs.uno -uroot -p${mysql_root_password} -e 'show databases;'
 if [ if $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass ${mysql_root_password}
