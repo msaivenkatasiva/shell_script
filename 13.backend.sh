@@ -8,7 +8,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-echo -e "please enter DB PASSWORD:"
+echo "please enter DB PASSWORD:"
 read -s mysql_root_password
 
 if [ $ID -ne 0 ]
@@ -19,7 +19,7 @@ else
     echo -e "$G you'r a root user $N"
 fi
 
-VALIDATE () {
+VALIDATE (){
     if [ $1 -ne 0 ]
     then
         echo -e "$2...$R FAILURE $N"
@@ -47,7 +47,7 @@ else
     echo -e "user already exists...$Y SKYPPING $N"
 fi
 
-mkdir /app &>>$LOGFILE
+mkdir -p /app &>>$LOGFILE
 VALIDATE $? "creating app directory"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE
@@ -76,7 +76,7 @@ VALIDATE $? "enabling backend"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "installing mysql"
 
-mysql -h db.devopswithmsvs.uno -uroot -p{$mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
+mysql -h db.devopswithmsvs.uno -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "schema loading"
 
 systemctl restart backend &>>$LOGFILE
