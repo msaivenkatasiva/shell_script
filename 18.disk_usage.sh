@@ -11,7 +11,7 @@ do
     FOLDER=$(echo $line | awk -F " " '{print $NF}')
     if [ $USAGE -ge $DISK_THRESHOLD ]
     then
-        MESSAGE+="$FOLDER is more than $DISK_THRESHOLD, current usage is $USAGE \n"
+        MESSAGE+="Folder-$FOLDER of your linux server's disk-usage is more than $DISK_THRESHOLD, current usage is $USAGE, please take necessary action on high priority basis \n"
     fi
 done <<< $DISK_USAGE
 
