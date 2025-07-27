@@ -9,7 +9,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 echo -e "please enter DB PASSWORD:"
-READ -s mysql_root_password
+read -s mysql_root_password
 
 if [ $ID -ne 0 ]
 then
@@ -29,55 +29,55 @@ VALIDATE () {
     fi
 }
 
-dnf module disable nodejs -y
+dnf module disable nodejs -y &>>$LOGFILE
 VALIDATE $? "disabling nodejs"
 
-dnf module enable nodejs:20 -y
+dnf module enable nodejs:20 -y &>>$LOGFILE
 VALIDATE $? "enabling nodejs:20"
 
-dnf install nodejs -y
+dnf install nodejs -y &>>$LOGFILE
 VALIDATE $? "installing nodejs"
 
 id expense
 if [ $? -ne 0 ]
 then 
-    useradd expense
+    useradd expense &>>$LOGFILE
     VALIDATE $? "adding user"
 else
     echo -e "user already exists...$Y SKYPPING $N"
 fi
 
-mkdir /app
+mkdir /app &>>$LOGFILE
 VALIDATE $? "creating app directory"
 
-curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE
 VALIDATE $? "downloading application"
 
 cd /app
 rm -rf /app/*
-unzip /tmp/backend.zip
+unzip /tmp/backend.zip &>>$LOGFILE
 VALIDATE $? "unzipping backend code"
 
-npm install 
+npm install &>>$LOGFILE
 VALIDATE $? "installing dependencies"
 
-cp /home/ec2-user/shell_script/backend.service /etc/systemd/system/backend.service
+cp /home/ec2-user/shell_script/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 VALIDATE $? "copying backend service"
 
-systemctl daemon-reload
+systemctl daemon-reload &>>$LOGFILE
 VALIDATE $? "deamon-reload"
 
-systemctl start backend
+systemctl start backend &>>$LOGFILE
 VALIDATE $? "starting backend"
 
-systemctl enable backend
+systemctl enable backend &>>$LOGFILE
 VALIDATE $? "enabling backend"
 
-dnf install mysql -y
+dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "installing mysql"
 
-mysql -h db.devopswithmsvs.uno -uroot -p{$mysql_root_password} < /app/schema/backend.sql
+mysql -h db.devopswithmsvs.uno -uroot -p{$mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "schema loading"
 
-systemctl restart backend
+systemctl restart backend &>>$LOGFILE
 VALIDATE $? "Restarting Backend"
